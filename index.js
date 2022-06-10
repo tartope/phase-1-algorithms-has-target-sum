@@ -17,14 +17,22 @@ function hasTargetSum(array, target) {
 
 /* 
   Write the Big O time complexity of your function here
+  quadratic time O(n^2)
 */
 
 /* 
   Add your pseudocode here
+  1. loop through each number
+  2. loop through the rest of the numbers
+  3. add each number together and compare to target
+  4. if === target, return true
+  5. else return false
 */
 
 /*
   Add written explanation of your solution here
+  Write a function called hasTargetSum that receives two arguments: an 'array' of integers and a 'target' integer.  The function should return true if any pair of numbers in the array adds up to the target number.
+  Take first number and add it to each number in array. if === target, return true, else return false.
 */
 
 // You can run `node index.js` to view these console logs
@@ -63,15 +71,8 @@ if (require.main === module) {
 
 module.exports = hasTargetSum;
 
-// Write a function called hasTargetSum that receives two arguments: an 'array' of integers and a 'target' integer.  The function should return true if any pair of numbers in the array adds up to the target number.
-// take first number and add it to each number in array. if === target, return true, else return false.
-// 1. loop through each number
-// 2. loop through the rest of the numbers
-// 3. add each number together and compare to target
-// 4. if === target, return true
-// 5. else return false
 
-//canvas solution below:
+//canvas solution 1 below O(n^2) quadratic time:
 
 // function hasTargetSum(array, target) {
 //   // iterate over the array of numbers
@@ -87,5 +88,22 @@ module.exports = hasTargetSum;
 //     }
 //   }
 //   // if we reach the end of the array, return false
+//   return false;
+// }
+
+// canvas solution 2 below O(n) linear:
+// function hasTargetSum(array, target){
+//   // create an object to keep track of numbers we've already seen
+//   const seenNumbers = {};
+//   // iterate through each number in the array
+//   for(i = 0; i < array.length; i++) {
+//     // for the current number, identify a complement at adds to it and becomes the target (complement = target - current number)
+//     const complement = target - array[i];
+//     // if the key in our object is a complement, return true
+//     if(seenNumbers[complement]) return true;
+//     // otherwise, add it to the seenNumbers object to keep track of it
+//     seenNumbers[array[i]] = true;
+//   }
+//   // if not found, return false
 //   return false;
 // }
