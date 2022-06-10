@@ -107,3 +107,27 @@ module.exports = hasTargetSum;
 //   // if not found, return false
 //   return false;
 // }
+
+//canvas solution 2 refactored, still O(n) linear runtime:
+// function hasTargetSum(array, target) {
+//   const seenNumbers = {}
+
+//   for(const number of array) {
+//     const complement = target - number;
+//     if(seenNumbers[complement]) return true;
+//     seenNumbers[number] = true;
+//   }
+//   return false;
+// }
+
+//canvas solution 2.1 refactored, still O(n) linear runtime:
+// function hasTargetSum(array, target) {
+//   const seenNumbers = {}
+
+//   for(const number of array) {
+//     const complement = target - number;
+//     if(complement in seenNumbers) return true;   <--change here with 'in' keyword
+//     seenNumbers[number] = true;
+//   }
+//   return false;
+// }
